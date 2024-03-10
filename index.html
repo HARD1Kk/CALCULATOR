@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Awesome Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #644545;
+  }
+  .calculator {
+    width: 50vh;
+    height: 70vh;
+    border: 1px solid #2e2828;
+    background-color: #b48383;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .screen {
+    height: 15px;
+    text-align: right;
+    padding: 60px 80px;
+    font-size: 40px;
+    border-bottom: 1px solid #171313;
+    line-height: 40px;
+}
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+    
+  
+    }
+  .button {
+    
+    height : 100px;
+    border: none;
+    outline-style: none;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+  }
+    
+  .button:hover {
+    background-color: #ddd;
+  }
+
+  #button4:hover {
+    background-color: #916b6b;
+    color: #291111;
+  }
+
+    #button8:hover {
+        background-color: #916b6b;
+        color: #291111;
+    }
+
+    #button12:hover {
+        background-color: #916b6b;
+        color: #291111;
+    }
+
+    #button14:hover {
+        background-color: #916b6b;
+        color: #291111;
+    }
+  .equals {
+    background-color: #ff9800;
+    color: #fff;
+  }
+ 
+
+  .button:active {
+    background-color: #894646;
+  }
+
+   #button4 {
+    background-color: #d8c9b3;
+    color: #fff;
+  }
+
+    #button8 {
+        background-color: #d8c9b3;
+        color: #fff;
+    }
+
+    #button12 {
+        background-color: #d8c9b3;
+        color: #fff;
+    }
+
+   
+
+   
+
+    #button14 {
+        background-color: #d8c9b3;
+        color: #fff;
+    }
+
+   
+
+    
+
+</style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="screen" id="screen">0</div>
+    <div class="buttons">
+      <button id = "button1" class="button">1</button>
+        <button id = "button2" class="button">2</button>
+        <button id = "button3" class="button">3</button>
+        <button id = "button4" class="button">+</button>
+        <button id = "button5" class="button">4</button>
+
+        <button id = "button6" class="button">5</button>
+        <button id = "button7" class="button">6</button>
+        <button id = "button8" class="button">-</button>
+        <button id = "button9" class="button">7</button>
+        <button id = "button10" class="button">8</button>
+
+        <button id = "button11" class="button">9</button>
+        <button id = "button12" class="button">*</button>
+        <button id = "button13" class="button">0</button>
+        
+        <button id = "button15" class="button">C</button>
+        <button id = "button16" class="button equals">=</button>
+        <button id = "button14" class="button">/</button>
+        
+    </div>
+  </div>
+  <script>
+    const screen = document.getElementById('screen');
+    const buttons = document.querySelectorAll('.button');
+
+    let currentInput = '';
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const buttonText = button.textContent;
+        if (buttonText === '=') {
+          try {
+            currentInput = eval(currentInput).toString();
+          } catch (error) {
+            currentInput = 'Error';
+          }
+        } else if (buttonText === 'C') {
+          currentInput = '';
+        } else {
+          currentInput += buttonText;
+        }
+        screen.textContent = currentInput;
+      });
+    });
+  </script>
+</body>
+</html>
